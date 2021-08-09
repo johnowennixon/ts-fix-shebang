@@ -1,23 +1,33 @@
 #!/usr/bin/env node
 
-import {ArgumentParser} from "argparse"
+import {ArgumentParser, ArgumentParserOptions} from "argparse"
 import * as fs from "fs"
 import * as glob from "glob"
 
 interface ParsedArgs {
   dist: string
+  verbose: boolean
 }
 
 function parse_args(): ParsedArgs {
-  const ap = new ArgumentParser({description: "Fix TypeScript shebang", add_help: true})
+  const apo = {
+    description: "Fix TypeScript shebang",
+    add_help: true,
+    allow_abbrev: false,
+  } as unknown as ArgumentParserOptions
 
-  ap.add_argument("dist")
+  const ap = new ArgumentParser(apo)
+
+  ap.add_argument("dist", {help: "glob of dist paths to fix"})
+  ap.add_argument("--verbose", {action: "store_true", help: "show verbose messages"})
 
   return ap.parse_args() as ParsedArgs
 }
 
-function fix_shebang(path: string): void {
-  console.log(`Fixing shebang for ${path}`)
+function fix_shebang(path: string, verbose: boolean): void {
+  if (verbose) {
+    console.log(`Fixing shebang for ${path}`)
+  }
 
   const text_in = fs.readFileSync(path, {encoding: "utf8"})
 
@@ -37,10 +47,16 @@ function fix_shebang(path: string): void {
   fs.writeFileSync(path, text_out, {encoding: "utf8"})
 }
 
-const pa = parse_args()
+function main(): void {
+  const pa = parse_args()
 
-const paths = glob.sync(pa.dist, {nodir: true})
+  console.log(`Fixing shebangs in glob: '${pa.dist}'`)
 
-for (const path of paths) {
-  fix_shebang(path)
+  const paths = glob.sync(pa.dist, {nodir: true})
+
+  for (const path of paths) {
+    fix_shebang(path, pa.verbose)
+  }
 }
+
+main()

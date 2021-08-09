@@ -1,6 +1,6 @@
 {
   "name": "@johnowennixon/ts-fix-shebang",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Fix shebang on Javascript files generated from TypeScript.",
   "license": "0BSD",
   "author": {
@@ -20,18 +20,17 @@
   },
   "devDependencies": {
     "@johnowennixon/okay": "0.0.3",
-    "@types/argparse": "^2.0.8",
-    "@types/glob": "^7.1.3",
-    "@types/node": "^15.6.0",
+    "@types/argparse": "^2.0.10",
+    "@types/glob": "^7.1.4",
+    "@types/node": "^16.4.13",
     "chmodx": "^1.0.0",
-    "prettier": "^2.3.0",
+    "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
-    "typescript": "^4.2.4"
+    "typescript": "^4.3.5"
   },
   "scripts": {
     "build": "rimraf dist && tsc && chmodx --package && okay",
-    "check": "prettier 'src/**/*.ts' --list-different && okay",
-    "reformat": "prettier 'src/**/*.ts' --write"
+    "check": "prettier 'src/**/*.ts' --list-different && okay"
   },
   "dependencies": {
     "argparse": "^2.0.1",
