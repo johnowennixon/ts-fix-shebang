@@ -50,8 +50,6 @@ function fix_shebang(path: string, verbose: boolean): void {
 function main(): void {
   const pa = parse_args()
 
-  console.log(`Fixing shebangs in files: '${pa.dist}'`)
-
   const paths = glob.sync(pa.dist, {nodir: true})
 
   for (const path of paths) {
