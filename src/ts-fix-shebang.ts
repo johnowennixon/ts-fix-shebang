@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import {ArgumentParser, ArgumentParserOptions} from "argparse"
-import * as fs from "fs"
+import * as fs from "node:fs"
 import * as glob from "glob"
 
 interface ParsedArgs {

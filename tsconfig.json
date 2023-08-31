@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "lib": ["ESNext"],
+    "lib": [
+      "ESNext"
+    ],
     "module": "CommonJS",
     "moduleResolution": "node",
     "noEmitOnError": true,
@@ -8,10 +10,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "./dist",
+    "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext",
+    "target": "ESNext"
   },
   "include": [
-      "src/**/*.ts"
+    "src/**/*.ts"
   ]
 }
