@@ -34,7 +34,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.7.0",
     "@johnowennixon/chmodx": "1.2.0",
-    "@johnowennixon/okay": "2.0.0",
+    "@johnowennixon/okay": "3.0.0",
     "@types/argparse": "2.0.16",
     "@types/glob": "8.1.0",
     "@types/node": "20.12.7",
