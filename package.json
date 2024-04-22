@@ -1,6 +1,6 @@
 {
   "name": "@johnowennixon/ts-fix-shebang",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Fix shebang on Javascript files generated from TypeScript",
   "keywords": [
     "shebang"
