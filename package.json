@@ -1,7 +1,7 @@
 {
   "name": "@johnowennixon/ts-fix-shebang",
   "version": "1.1.0",
-  "description": "Fix shebang on Javascript files generated from TypeScript.",
+  "description": "Fix shebang on Javascript files generated from TypeScript",
   "keywords": [
     "shebang"
   ],
@@ -16,29 +16,29 @@
     "url": "https://github.com/johnowennixon/ts-fix-shebang.git"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=20"
   },
-  "type": "commonjs",
+  "type": "module",
   "bin": {
     "ts-fix-shebang": "dist/ts-fix-shebang.js"
   },
   "scripts": {
     "build": "rimraf dist && tsc && chmodx --package && okay",
-    "lint": "prettier 'src/**/*.ts' --list-different && okay",
+    "lint": "biome check src && okay",
     "test": "exit 0"
   },
   "dependencies": {
     "argparse": "2.0.1",
-    "glob": "10.3.4"
+    "glob": "10.3.12"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.7.0",
     "@johnowennixon/chmodx": "1.2.0",
-    "@johnowennixon/okay": "1.0.0",
-    "@types/argparse": "2.0.10",
+    "@johnowennixon/okay": "2.0.0",
+    "@types/argparse": "2.0.16",
     "@types/glob": "8.1.0",
-    "@types/node": "20.5.7",
-    "prettier": "3.0.3",
-    "rimraf": "5.0.1",
-    "typescript": "5.2.2"
+    "@types/node": "20.12.7",
+    "rimraf": "5.0.5",
+    "typescript": "5.4.5"
   }
 }

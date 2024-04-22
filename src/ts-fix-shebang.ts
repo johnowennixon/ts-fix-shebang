@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import {ArgumentParser, ArgumentParserOptions} from "argparse"
 import * as fs from "node:fs"
+import {ArgumentParser, type ArgumentParserOptions} from "argparse"
 import * as glob from "glob"
 
 interface ParsedArgs {
@@ -31,12 +31,12 @@ function fix_shebang(path: string, verbose: boolean): void {
 
   const text_in = fs.readFileSync(path, {encoding: "utf8"})
 
-  let lines = text_in.split(/\r?\n/)
+  const lines = text_in.split(/\r?\n/)
 
   const SHEBANG_OTHER = "#!/"
   const SHEBANG_NODE = "#!/usr/bin/env node"
 
-  if (lines.length && lines[0].startsWith(SHEBANG_OTHER)) {
+  if (lines.length > 0 && lines[0].startsWith(SHEBANG_OTHER)) {
     lines[0] = SHEBANG_NODE
   }
 

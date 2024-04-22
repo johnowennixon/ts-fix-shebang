@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "lib": [
-      "ESNext"
+      "es2023"
     ],
-    "module": "CommonJS",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "noEmitOnError": true,
     "noErrorTruncation": true,
     "noUnusedLocals": true,
@@ -12,7 +12,7 @@
     "outDir": "./dist",
     "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext"
+    "target": "es2022"
   },
   "include": [
     "src/**/*.ts"
